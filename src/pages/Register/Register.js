@@ -4,11 +4,22 @@ import { HiMail, HiLockClosed } from "react-icons/hi";
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+
+    const handleRegister = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const username = form.username.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const file = form.file.value;
+        console.log(email, password, username, file)
+    }
+
     return (
         <section className="bg-white dark:bg-gray-900 mt-10">
             <div className="sm:w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-8">
 
-                <form className="w-full max-w-md">
+                <form onSubmit={handleRegister} className="w-full max-w-md">
 
                     <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">Sign Up</h1>
                     <div className="relative flex items-center mt-8">
@@ -16,14 +27,14 @@ const Register = () => {
                             <FaUserAlt className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"></FaUserAlt>
                         </span>
 
-                        <input type="text" className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" />
+                        <input type="text" name='username' className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" />
                     </div>
 
                     <label htmlFor="dropzone-file" className="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-md cursor-pointer dark:border-gray-600 dark:bg-gray-900">
                         <FaUpload className="w-6 h-6 text-gray-300 dark:text-gray-500"></FaUpload>
                         <h2 className="mx-3 text-gray-400">Profile Photo</h2>
 
-                        <input id="dropzone-file" type="file" className="hidden" />
+                        <input id="dropzone-file" type="file" name='file' accept="image/png, image/jpeg" className="hidden" />
                     </label>
 
                     <div className="relative flex items-center mt-6">
@@ -31,7 +42,7 @@ const Register = () => {
                             <HiMail className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"></HiMail>
                         </span>
 
-                        <input type="email" className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" />
+                        <input type="email" name='email' className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" />
                     </div>
 
                     <div className="relative flex items-center mt-4">
@@ -39,17 +50,8 @@ const Register = () => {
                             <HiLockClosed className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"></HiLockClosed>
                         </span>
 
-                        <input type="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" />
+                        <input type="password" name='password' className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" />
                     </div>
-
-                    <div className="relative flex items-center mt-4">
-                        <span className="absolute">
-                            <HiLockClosed className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"></HiLockClosed>
-                        </span>
-
-                        <input type="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password" />
-                    </div>
-
                     <div className="mt-6">
                         <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                             Sign Up

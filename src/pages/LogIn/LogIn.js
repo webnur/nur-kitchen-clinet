@@ -3,14 +3,23 @@ import { FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const LogIn = () => {
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+    }
+
     return (
         <div className="sm:w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-8">
         <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">Log In</h1>
     
-        <form className="mt-6">
+        <form onSubmit={handleSubmit} className="mt-6">
             <div>
                 <label htmlFor="username" className="block text-sm text-gray-800 dark:text-gray-200">Username</label>
-                <input type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                <input type="email" name='email' className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder='email' required />
             </div>
     
             <div className="mt-4">
@@ -19,7 +28,7 @@ const LogIn = () => {
                     <Link to='' className="text-xs text-gray-600 dark:text-gray-400 hover:underline">Forget Password?</Link>
                 </div>
     
-                <input type="password" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
+                <input type="password" name='password' className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder='password' />
             </div>
     
             <div className="mt-6">

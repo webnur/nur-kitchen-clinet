@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaGithub, FaUpload, FaUserAlt } from 'react-icons/fa';
 import { HiMail, HiLockClosed } from "react-icons/hi";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
+
+    const {createUser, updateUserProfile} = useContext(AuthContext)
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -13,6 +16,14 @@ const Register = () => {
         const password = form.password.value;
         const file = form.file.value;
         console.log(email, password, username, file)
+
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            updateUserProfile(username)
+        })
+        .catch(error => console.error(error))
     }
 
     return (

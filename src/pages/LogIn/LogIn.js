@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const LogIn = () => {
+
+    const {signIn} = useContext(AuthContext)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -10,6 +13,13 @@ const LogIn = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+        signIn(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error => console.error(error))
+
     }
 
     return (

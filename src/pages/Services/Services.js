@@ -15,7 +15,8 @@ const Services = () => {
     // console.log(services)
     return (
         <div className='container mx-auto'>
-            <h2>this is services page</h2>
+            <h2 className='text-5xl text-center mt-12'>Welcome to Services Page</h2>
+            <p className='text-center my-3 text-xl mb-10'>there are my popular services. you can need to those</p>
             <div className='lg:grid grid-cols-3'>
                 {
                     services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)

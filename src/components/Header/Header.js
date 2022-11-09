@@ -8,8 +8,8 @@ const Header = () => {
 
   const handleSignOut = () => {
     logOut()
-    .then(() => {})
-    .catch(error => console.error(error))
+      .then(() => { })
+      .catch(error => console.error(error))
   }
 
   const [open, setOpen] = useState(false)
@@ -68,9 +68,14 @@ const Header = () => {
               </button>
 
               <button type="button" className="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
-                <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" className="object-cover w-full h-full" alt="avatar" />
-                </div>
+                {
+                  user?.photoURL &&
+                  <div title={user?.displayName} className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                    <img src={user?.photoURL} className="object-cover w-full h-full" alt="avatar" />
+                  </div>
+                }
+
+
 
                 <h3 className="mx-2 text-gray-700 dark:text-gray-200 lg:hidden">Khatab wedaa</h3>
               </button>

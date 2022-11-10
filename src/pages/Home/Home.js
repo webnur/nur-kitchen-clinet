@@ -13,7 +13,7 @@ const Home = () => {
     useTitle('Home')
     const sliceServices = services.slice(0, 3);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://assignment-11-server-sandy-chi.vercel.app/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data)

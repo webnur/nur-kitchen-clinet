@@ -4,14 +4,16 @@ import Comment from '../../components/Comment/Comment';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-toastify';
 import useTitle from '../../Hooks/useTitle';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceDetails = () => {
     useTitle('ServiceDetails')
     const serviceDetails = useLoaderData();
-    const { user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const email = user?.email;
     const author = user?.displayName;
-    const authorImage =user?.photoURL
+    const authorImage = user?.photoURL
     const [comments, setComment] = useState([]);
     const { name, price, image, description, rating, _id } = serviceDetails;
 
@@ -27,7 +29,7 @@ const ServiceDetails = () => {
             author: author
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assignment-11-server-sandy-chi.vercel.app/reviews', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -36,35 +38,40 @@ const ServiceDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)            
+                console.log(data)
             })
             .catch(error => console.error(error))
-            toast.success('SuccessFully done Your comment', { autoClose: 1000 })
-          
+        toast.success('SuccessFully done Your comment', { autoClose: 1000 })
+
 
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${_id}`)
-        .then(res => res.json())
-        .then(data => {
-            setComment(data)
-            // console.log(data)
-            
-        })
-    },[_id, comments])
+        fetch(`https://assignment-11-server-sandy-chi.vercel.app/reviews/${_id}`)
+            .then(res => res.json())
+            .then(data => {
+                setComment(data)
+                // console.log(data)
+
+            })
+    }, [_id, comments])
 
     return (
         <div className='container mx-auto'>
             <div className="container mx-auto my-10 max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
                 <div className='p-5'>
-                    <img className="object-cover w-full h-64" src={image} alt="Article" />
+                    <PhotoProvider>
+                        <PhotoView src={image}>
+                            <img className="object-cover w-full h-64" src={image} alt="Article" />
+                        </PhotoView>
+                    </PhotoProvider>
+
                 </div>
 
                 <div className="p-6">
                     <div>
-                        <span className="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">Price: $ {price}</span> <br />
-                        <span className="text-xs mt-2 font-medium  uppercase dark:text-blue-400">Rating: {rating} Star</span>
+                        <span className="text-2xl font-medium text-blue-600 uppercase dark:text-blue-400 ">Price: $ {price}</span> <br />
+                        <span className="text-xl mt-2 font-medium  uppercase dark:text-blue-400">Rating: {rating} Star</span>
                         <h2 className="block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600" role="link">{name}</h2>
                         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{description}</p>
                     </div>
@@ -86,14 +93,14 @@ const ServiceDetails = () => {
             <div className='mb-10'>
                 <h2 className='text-xl font-bold my-3'>All Comments</h2>
                 {
-                    comments.map(comment => <Comment 
+                    comments.map(comment => <Comment
                         key={comment._id}
                         comment={comment}
-                        >
+                    >
 
-                        </Comment>)
+                    </Comment>)
                 }
-               
+
             </div>
         </div>
 

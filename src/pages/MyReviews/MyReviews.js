@@ -8,7 +8,7 @@ const MyReviews = () => {
     useTitle('myReviews')
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`https://assignment-11-server-sandy-chi.vercel.app/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
@@ -17,7 +17,7 @@ const MyReviews = () => {
 
     const handleDeleteReview = id => {
         console.log(id)
-        fetch(`http://localhost:5000/reviews/${id}`,{
+        fetch(`https://assignment-11-server-sandy-chi.vercel.app/reviews/${id}`,{
             method: 'DELETE',
         })
         .then(res => res.json())

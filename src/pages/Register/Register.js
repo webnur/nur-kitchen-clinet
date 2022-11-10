@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
-import { FaGithub, FaUpload, FaUserAlt } from 'react-icons/fa';
+import { FaGithub, FaUserAlt } from 'react-icons/fa';
 import { HiMail, HiLockClosed } from "react-icons/hi";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-toastify';
 import useTitle from '../../Hooks/useTitle';
 
 const Register = () => {
     useTitle('Register')
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const {createUser, updateUserProfile, googleSignIn, githubSignIn} = useContext(AuthContext)
 
@@ -26,6 +29,7 @@ const Register = () => {
             console.log(user)
             updateUserProfile(username)
             toast.success('SuccessFully done Sign Up', { autoClose: 1000 })
+            navigate(from, {replace: true})
         })
         .catch(error => console.error(error))
     }
@@ -36,6 +40,7 @@ const Register = () => {
             const user = result.user;
             console.log(user)
             toast.success('SuccessFully done Sign Up', { autoClose: 1000 })
+            navigate(from, {replace: true})
         })
         .catch(error => console.error(error))
     }
@@ -46,8 +51,10 @@ const Register = () => {
             const user = result.user;
             toast.success('SuccessFully done Sign Up', { autoClose: 1000 })
             console.log(user)
+            navigate(from, {replace: true})
         })
         .catch(error => console.error(error))
+      
     }
 
     return (

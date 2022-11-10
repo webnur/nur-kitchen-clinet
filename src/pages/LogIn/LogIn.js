@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
 import { FaGithub } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-toastify';
 import useTitle from '../../Hooks/useTitle';
 
 const LogIn = () => {
     useTitle('Login')
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
 
     const handleSubmit = (event) => {
@@ -20,6 +23,7 @@ const LogIn = () => {
                 const user = result.user;
                 console.log(user)
                 toast.success('SuccessFully you Login', { autoClose: 1000 })
+                navigate(from, {replace: true})
             })
             .catch(error => console.error(error))
 
@@ -31,6 +35,7 @@ const LogIn = () => {
                 const user = result.user;
                 console.log(user)
                 toast.success('SuccessFully you Login', { autoClose: 1000 })
+                navigate(from, {replace: true})
             })
             .catch(error => console.error(error))
     }
@@ -41,6 +46,7 @@ const LogIn = () => {
                 const user = result.user;
                 console.log(user)
                 toast.success('SuccessFully you Login', { autoClose: 1000 })
+                navigate(from, {replace: true})
             })
             .catch(error => console.error(error))
     }
@@ -48,7 +54,7 @@ const LogIn = () => {
 
 
     return (
-        <div className="sm:w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-8">
+        <div className="sm:w-full mb-5 max-w-sm p-6 m-auto mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-8">
             <h1 className="text-3xl font-semibold text-center text-gray-700 dark:text-white">Log In</h1>
 
             <form onSubmit={handleSubmit} className="mt-6">

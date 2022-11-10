@@ -39,7 +39,6 @@ const ServiceDetails = () => {
                 console.log(data)            
             })
             .catch(error => console.error(error))
-            comment.reset()
             toast.success('SuccessFully done Your comment', { autoClose: 1000 })
           
 

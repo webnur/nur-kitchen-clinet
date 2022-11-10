@@ -1,17 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Review from '../../components/Review/Review';
+import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
 const MyReviews = () => {
+    const {user} = useContext(AuthContext)
     useTitle('myReviews')
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
             })
-    }, [])
+    }, [user?.email])
+
+    const handleDeleteReview = id => {
+        console.log(id)
+        fetch(`http://localhost:5000/reviews/${id}`,{
+            method: 'DELETE',
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+            if( data.deletedCount > 0){
+                const remaining = reviews.filter(rev => rev._id !== id);
+                setReviews(remaining)
+            }
+        })
+    }
 
 
     return (
@@ -38,7 +55,13 @@ const MyReviews = () => {
                         </tr>
                     </thead>
                     {
-                        reviews.map(review => <Review key={review._id} review={review}></Review>)
+                        reviews.map(review => <Review
+                             key={review._id}
+                              review={review}
+                              handleDeleteReview={handleDeleteReview}
+                              >
+
+                              </Review>)
                     }
 
                 </table>

@@ -1,5 +1,5 @@
 import React from 'react';
-const Review = ({review}) => {
+const Review = ({review, handleDeleteReview}) => {
     // console.log(review)
     return (
         <tbody>
@@ -14,7 +14,7 @@ const Review = ({review}) => {
             <img className="w-12 h-12 rounded-lg" src={review.image} alt="Default avatar"></img>
             </td>
             <td className="py-4 px-6 text-right">
-                <button className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
+                <button onClick={() => handleDeleteReview(review._id)} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</button>
             </td>
         </tr>
     </tbody>

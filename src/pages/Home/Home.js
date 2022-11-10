@@ -4,6 +4,8 @@ import Clock from '../../components/Clock/Clock';
 import Newsletter from '../../components/Newsletter/Newsletter';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import useTitle from '../../Hooks/useTitle';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 import './Home.css'
 
 const Home = () => {
@@ -34,7 +36,12 @@ const Home = () => {
                         </div>
 
                         <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
-                            <img className="w-full h-full lg:max-w-2xl rounded-lg" src={"https://img.freepik.com/free-photo/flat-lay-batch-cooking-composition_23-2148765597.jpg?w=2000"} alt="Catalogue-pana.svg" />
+                            <PhotoProvider>
+                                <PhotoView src={"https://img.freepik.com/free-photo/flat-lay-batch-cooking-composition_23-2148765597.jpg?w=2000"}>
+                                    <img className="w-full h-full lg:max-w-2xl rounded-lg" src={"https://img.freepik.com/free-photo/flat-lay-batch-cooking-composition_23-2148765597.jpg?w=2000"} alt="Catalogue-pana.svg" />
+                                </PhotoView>
+                            </PhotoProvider>
+
                         </div>
                     </div>
                 </div>
@@ -71,7 +78,7 @@ const Home = () => {
                 </div>
 
             </section>
-            
+
             <Newsletter></Newsletter>
         </div>
     );

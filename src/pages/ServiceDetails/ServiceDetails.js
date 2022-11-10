@@ -78,7 +78,7 @@ const ServiceDetails = () => {
 
             <div>
                 <h2 className='text-xl font-bold my-3'>All Comments</h2>
-              
+               
             </div>
         </div>
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Clock from '../../components/Clock/Clock';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import './Home.css'
 
@@ -55,6 +56,19 @@ const Home = () => {
                 </div>
 
             </div>
+
+
+            <section className=' bg-emerald-200 h-72 my-10'>
+                <div className='container mx-auto'>
+                    <h2 className='text-5xl text-orange-600 text-center pt-5'>get 20% discount per packages</h2>
+                    <Clock></Clock>
+
+                    <div className='text-center pt-3'>
+                        <Link to='/services' className='inline-flex uppercase items-center py-3 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Order Now</Link>
+                    </div>
+                </div>
+
+            </section>
         </div>
     );
 };

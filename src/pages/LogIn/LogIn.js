@@ -3,9 +3,10 @@ import { FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-toastify';
+import useTitle from '../../Hooks/useTitle';
 
 const LogIn = () => {
-
+    useTitle('Login')
     const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
 
     const handleSubmit = (event) => {

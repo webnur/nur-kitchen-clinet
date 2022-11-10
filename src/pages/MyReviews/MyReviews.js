@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Review from '../../components/Review/Review';
+import useTitle from '../../Hooks/useTitle';
 
 const MyReviews = () => {
+    useTitle('myReviews')
     const [reviews, setReviews] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/reviews')

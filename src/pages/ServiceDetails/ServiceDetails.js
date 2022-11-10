@@ -3,8 +3,10 @@ import { useLoaderData } from 'react-router-dom';
 import Comment from '../../components/Comment/Comment';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-toastify';
+import useTitle from '../../Hooks/useTitle';
 
 const ServiceDetails = () => {
+    useTitle('ServiceDetails')
     const serviceDetails = useLoaderData();
     const { user} = useContext(AuthContext);
     const email = user?.email;

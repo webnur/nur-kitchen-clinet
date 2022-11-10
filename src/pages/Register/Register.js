@@ -4,8 +4,10 @@ import { HiMail, HiLockClosed } from "react-icons/hi";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { toast } from 'react-toastify';
+import useTitle from '../../Hooks/useTitle';
 
 const Register = () => {
+    useTitle('Register')
 
     const {createUser, updateUserProfile, googleSignIn, githubSignIn} = useContext(AuthContext)
 

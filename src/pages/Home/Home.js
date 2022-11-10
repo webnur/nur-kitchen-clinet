@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import Clock from '../../components/Clock/Clock';
 import Newsletter from '../../components/Newsletter/Newsletter';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
+import useTitle from '../../Hooks/useTitle';
 import './Home.css'
 
 const Home = () => {
     const [services, setServices] = useState([])
-
+    useTitle('Home')
     const sliceServices = services.slice(0, 3);
     useEffect(() => {
         fetch('http://localhost:5000/services')

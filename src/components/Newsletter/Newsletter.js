@@ -1,13 +1,11 @@
 import React from 'react';
-
+import { toast } from 'react-toastify';
 const Newsletter = () => {
 
     const handleNewsLetter = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
-      
-
         const newsletter = {
             email: email
         }
@@ -24,11 +22,12 @@ const Newsletter = () => {
             console.log(data)
         })
         .catch(error => console.error(error))
+        toast.success('SuccessFully You subscribe', { autoClose: 1000 })
         form.reset()
     }
 
     return (
-        <section className="bg-emerald-200">
+        <section className="bg-emerald-200 mb-10">
             <div className="max-w-3xl px-6 py-16 mx-auto text-center">
                 <h1 className="text-3xl font-semibold text-gray-800 dark:text-gray-100">are you want update about my packages?</h1>
                 <p className="max-w-md mx-auto mt-5 text-gray-500 dark:text-gray-400">please! subscribe with your email. I will update my new packages on your email.</p>

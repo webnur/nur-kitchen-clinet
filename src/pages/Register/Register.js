@@ -3,6 +3,7 @@ import { FaGithub, FaUpload, FaUserAlt } from 'react-icons/fa';
 import { HiMail, HiLockClosed } from "react-icons/hi";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Register = () => {
 
@@ -22,6 +23,7 @@ const Register = () => {
             const user = result.user;
             console.log(user)
             updateUserProfile(username)
+            toast.success('SuccessFully done Sign Up', { autoClose: 1000 })
         })
         .catch(error => console.error(error))
     }
@@ -31,6 +33,7 @@ const Register = () => {
         .then(result => {
             const user = result.user;
             console.log(user)
+            toast.success('SuccessFully done Sign Up', { autoClose: 1000 })
         })
         .catch(error => console.error(error))
     }
@@ -39,6 +42,7 @@ const Register = () => {
         githubSignIn()
         .then(result => {
             const user = result.user;
+            toast.success('SuccessFully done Sign Up', { autoClose: 1000 })
             console.log(user)
         })
         .catch(error => console.error(error))
@@ -59,12 +63,6 @@ const Register = () => {
                         <input type="text" name='username' className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" />
                     </div>
 
-                    <label htmlFor="dropzone-file" className="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-md cursor-pointer dark:border-gray-600 dark:bg-gray-900">
-                        <FaUpload className="w-6 h-6 text-gray-300 dark:text-gray-500"></FaUpload>
-                        <h2 className="mx-3 text-gray-400">Profile Photo</h2>
-
-                        <input id="dropzone-file" type="file" name='file' accept="image/png, image/jpeg" className="hidden" />
-                    </label>
 
                     <div className="relative flex items-center mt-6">
                         <span className="absolute">

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { toast } from 'react-toastify';
 const AddService = () => {
 
     const handleSubmit = (event) => {
@@ -29,6 +29,8 @@ const AddService = () => {
             console.log(data)
         })
         .catch(error => console.error(error))
+
+        toast.success('SuccessFully done Your add service', { autoClose: 1000 })
         form.reset()
 
     }

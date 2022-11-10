@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Comment from '../../components/Comment/Comment';
 import { AuthContext } from '../../contexts/AuthProvider';
+import { toast } from 'react-toastify';
 
 const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
@@ -33,9 +34,12 @@ const ServiceDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                console.log(data)            
             })
             .catch(error => console.error(error))
+            comment.reset()
+            toast.success('SuccessFully done Your comment', { autoClose: 1000 })
+          
 
     }
 
@@ -73,12 +77,12 @@ const ServiceDetails = () => {
             <div>
                 <h2 className='text-2xl font-bold my-3'>Add Your Comment</h2>
                 <form onSubmit={handleReviews}>
-                    <textarea className='w-3/4 rounded-2xl' name="comment" id="" rows="3"></textarea> <br />
+                    <textarea className='w-3/4 rounded-2xl' placeholder='Add Your Comment' name="comment" id="" rows="3"></textarea> <br />
                     <input className='py-3 mb-5 px-8 rounded-lg bg-blue-700 text-white cursor-pointer' type="submit" value="Add Comment" />
                 </form>
             </div>
 
-            <div>
+            <div className='mb-10'>
                 <h2 className='text-xl font-bold my-3'>All Comments</h2>
                 {
                     comments.map(comment => <Comment 

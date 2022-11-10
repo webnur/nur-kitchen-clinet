@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import { toast } from 'react-toastify';
 
 const LogIn = () => {
 
@@ -17,6 +18,7 @@ const LogIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                toast.success('SuccessFully you Login', { autoClose: 1000 })
             })
             .catch(error => console.error(error))
 
@@ -27,6 +29,7 @@ const LogIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                toast.success('SuccessFully you Login', { autoClose: 1000 })
             })
             .catch(error => console.error(error))
     }
@@ -36,6 +39,7 @@ const LogIn = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                toast.success('SuccessFully you Login', { autoClose: 1000 })
             })
             .catch(error => console.error(error))
     }

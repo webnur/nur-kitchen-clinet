@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Clock from '../../components/Clock/Clock';
+import Newsletter from '../../components/Newsletter/Newsletter';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import './Home.css'
 
@@ -69,6 +70,8 @@ const Home = () => {
                 </div>
 
             </section>
+            
+            <Newsletter></Newsletter>
         </div>
     );
 };

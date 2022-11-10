@@ -5,11 +5,11 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
-    const { user, loading } = useContext(AuthContext);
+    const { user} = useContext(AuthContext);
     const email = user?.email;
     const author = user?.displayName;
-    const [comments, setComment] = useState({});
-    // console.log(comments)
+    const authorImage =user?.photoURL
+    const [comments, setComment] = useState([]);
     const { name, price, image, description, rating, _id } = serviceDetails;
 
 
@@ -20,7 +20,7 @@ const ServiceDetails = () => {
             comment: comment,
             id: _id,
             email: email,
-            image: image,
+            image: authorImage,
             author: author
         }
 
@@ -40,12 +40,14 @@ const ServiceDetails = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch(`http://localhost:5000/reviews/${_id}`)
         .then(res => res.json())
         .then(data => {
             setComment(data)
+            // console.log(data)
+            
         })
-    },[])
+    },[_id, comments])
 
     return (
         <div className='container mx-auto'>
@@ -78,6 +80,14 @@ const ServiceDetails = () => {
 
             <div>
                 <h2 className='text-xl font-bold my-3'>All Comments</h2>
+                {
+                    comments.map(comment => <Comment 
+                        key={comment._id}
+                        comment={comment}
+                        >
+
+                        </Comment>)
+                }
                
             </div>
         </div>

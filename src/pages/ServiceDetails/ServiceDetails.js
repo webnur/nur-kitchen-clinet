@@ -83,10 +83,10 @@ const ServiceDetails = () => {
             </div>
 
             <div>
-                <h2 className='text-2xl font-bold my-3'>Add Your Comment</h2>
+                <h2  className='text-2xl font-bold my-3'>Add Your Comment</h2>
                 <form onSubmit={handleReviews}>
                     <textarea className='w-3/4 rounded-2xl' placeholder='Add Your Comment' name="comment" id="" rows="3"></textarea> <br />
-                    <input className='py-3 mb-5 px-8 rounded-lg bg-blue-700 text-white cursor-pointer' type="submit" value="Add Comment" />
+                    <input   style={{background: '#FDB066'}}  className='py-3 mb-5 px-8 rounded-lg text-white cursor-pointer' type="submit" value="Add Comment" />
                 </form>
             </div>
 

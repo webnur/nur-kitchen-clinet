@@ -22,16 +22,16 @@ const Home = () => {
 
     return (
         <div>
-            <div className='mb-10 bg-emerald-200'>
+            <div className='mb-10 bg-emerald-100'>
                 <div className="container px-6 py-16 mx-auto">
                     <div className="items-center lg:flex">
                         <div className="w-full lg:w-1/2">
                             <div className="lg:max-w-lg">
-                                <h1 className="text-2xl font-semibold text-gray-800 uppercase dark:text-white lg:text-3xl">Welcome to Ms. Nur Kitchen</h1>
+                                <h1 className="text-2xl font-semibold text-gray-800 uppercase dark:text-white lg:text-3xl">Welcome to Ms. <span style={{color: '#FDB066'}}>Nur Kitchen</span></h1>
 
                                 <p className="my-4 text-gray-600 dark:text-gray-400">Hello dear customer! there are many food packages for your family and friends and for your party example a holiday party etc. so quickly book now</p>
 
-                                <Link to='/services' className="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">Book Now</Link>
+                                <Link to='/services' style={{background: '#FDB066'}} className="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white uppercase transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">Book Now</Link>
                             </div>
                         </div>
 
@@ -67,13 +67,13 @@ const Home = () => {
             </div>
 
 
-            <section className=' bg-emerald-200 h-72 my-10'>
+            <section className=' bg-emerald-100 h-72 my-10'>
                 <div className='container mx-auto'>
-                    <h2 className='text-5xl text-orange-600 text-center pt-5'>get 20% discount per packages</h2>
+                    <h2  style={{color: '#FDB066'}} className='text-5xl  text-center pt-5'>Get 20% discount per packages</h2>
                     <Clock></Clock>
 
                     <div className='text-center pt-3'>
-                        <Link to='/services' className='inline-flex uppercase items-center py-3 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Order Now</Link>
+                        <Link to='/services'   style={{background: '#FDB066'}}  className='inline-flex uppercase items-center py-3 px-4 text-sm font-medium text-center text-white  rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'>Order Now</Link>
                     </div>
                 </div>
 

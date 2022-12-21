@@ -64,7 +64,7 @@ const AddService = () => {
 
 
                 <div className="mt-6">
-                    <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 translate bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+                    <button style={{background: '#FDB066'}} className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 translate rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
                         Add Service
                     </button>
                 </div>

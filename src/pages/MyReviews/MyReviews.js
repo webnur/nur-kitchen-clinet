@@ -32,7 +32,7 @@ const MyReviews = () => {
 
 
     return (
-        <div>
+        <div className='my-6'>
             <h2 className='text-3xl text-center my-10'> My Reviews</h2>
 
 

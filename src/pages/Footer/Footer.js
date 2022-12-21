@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
 
-        <div className='bg-emerald-200'>
+        <div className='bg-emerald-100'>
             <footer className="container mx-auto p-4 rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <Link to='/' className="flex items-center mb-4 sm:mb-0">
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">NUR KITCHEN</span>
+                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">NUR <span style={{color: '#FDB066'}}>KITCHEN </span></span>
                     </Link>
                     <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
                         <li>

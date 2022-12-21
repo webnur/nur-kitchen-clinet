@@ -36,27 +36,27 @@ const Clock = () => {
             <div className="clock__data d-flex align-items-center gap-3">
  
                 <div className='text-center'>
-                    <h1 className=' text-2xl mb-2 border-spacing-3 p-4 rounded-lg bg-neutral-600 text-white'>{days}</h1>
+                    <h1  style={{background: '#FDB066'}} className=' text-2xl mb-2 border-spacing-3 p-4 rounded-lg text-white'>{days}</h1>
                     <h4 className='text-3xl'>Days:</h4>
                 </div>
               
             </div>
             <div className="clock__data d-flex align-items-center gap-3">
                 <div className='text-center'>
-                    <h1 className='text-3xl mb-2 border-spacing-3 p-4 rounded-lg bg-neutral-600 text-white'>{hours}</h1>
+                    <h1  style={{background: '#FDB066'}} className='text-3xl mb-2 border-spacing-3 p-4 rounded-lg text-white'>{hours}</h1>
                     <h4 className='text-3xl'>Hours:</h4>
                 </div>
                 
             </div>
             <div className="clock__data d-flex align-items-center gap-3">
                 <div className='text-center'>
-                    <h1 className='text-2xl mb-2 border-spacing-3 p-4 rounded-lg bg-neutral-600 text-white'>{minutes}</h1>
+                    <h1  style={{background: '#FDB066'}} className='text-2xl mb-2 border-spacing-3 p-4 rounded-lg text-white'>{minutes}</h1>
                     <h4 className='text-3xl'>Minutes:</h4>
                 </div>
             </div>
             <div className="clock__data d-flex align-items-center gap-3">
                 <div className='text-center'>
-                    <h1 className='text-2xl mb-2 border-spacing-3 p-4 rounded-lg bg-neutral-600 text-white'>{seconds}</h1>
+                    <h1  style={{background: '#FDB066'}} className='text-2xl mb-2 border-spacing-3 p-4 rounded-lg text-white'>{seconds}</h1>
                     <h4 className='text-3xl'>Second</h4>
                 </div>
               

@@ -77,7 +77,7 @@ const ServiceDetails = () => {
                     </div>
 
                     <div className='mt-5'>
-                        <button className='py-3 px-8 rounded-lg bg-blue-700 text-white'>checkout</button>
+                        <button style={{background: '#FDB066'}} className='py-3 px-8 rounded-lg bg-blue-700 text-white'>checkout</button>
                     </div>
                 </div>
             </div>

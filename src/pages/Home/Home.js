@@ -61,7 +61,7 @@ const Home = () => {
                     }
                 </div>
                 <div className='text-center my-5'>
-                    <Link to='/services' className="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">see all</Link>
+                    <Link to='/services' style={{background: '#FDB066'}} className="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white uppercase transition-colors duration-300 transform rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">see All</Link>
                 </div>
 
             </div>
